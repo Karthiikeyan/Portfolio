@@ -232,12 +232,15 @@ export default function AdminView() {
 
   return (
     <div className="border-b border-gray-200">
-      <nav className="-mb-0.5 flex justify-center spcae-x-6" role="tablist">
+      <nav
+        className="flex items-center justify-center space-x-4"
+        role="tablist"
+      >
         {menuItems.map((item) => (
           <button
             key={item.id}
             type="button"
-            className="p-4 font-bold text-xl text-black"
+            className="transition duration-300 ease-in-out hover:text-blue-500"
             onClick={() => {
               setCurrentSelectedTab(item.id);
               resetFormDatas();
@@ -252,12 +255,12 @@ export default function AdminView() {
             setAuthUser(false);
             sessionStorage.removeItem("authUser");
           }}
-          className="p-4 font-bold text-xl text-black"
+          className="p-4 text-xl font-bold text-black"
         >
           Logout
         </button>
       </nav>
-      <div className="mt-10 p-10">
+      <div className="p-10 mt-10">
         {menuItems.map(
           (item) => item.id === currentSelectedTab && item.component
         )}
