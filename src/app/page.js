@@ -57,6 +57,7 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div>
       <ClientHomeView data={homeSectionData} />
