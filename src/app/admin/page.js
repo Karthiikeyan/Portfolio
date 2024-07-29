@@ -223,19 +223,23 @@ export default function AdminView() {
 
   if (!authUser)
     return (
-      <Login
-        formData={loginFormData}
-        handleLogin={handleLogin}
-        setFormData={setLoginFormData}
-      />
+      <div className="bg-[#D6D6D6] h-screen w-full ">
+        <Login
+          formData={loginFormData}
+          handleLogin={handleLogin}
+          setFormData={setLoginFormData}
+        />
+      </div>
     );
 
   return (
-    <div className="border-b border-gray-200">
-      <nav
-        className="flex items-center justify-center space-x-4"
-        role="tablist"
-      >
+    <div className="bg-[#D6D6D6] w-full h-full p-10">
+      <nav className="grid max-w-screen-xl grid-flow-col px-6 py-3 mx-auto bg-white rounded sm:px-8 lg:px-16 sm:py-4">
+        <div className="flex items-center col-start-1 col-end-2">
+          <div className="cursor-pointer flex gap-2 font-bold items-center text-[20px] text-blue-500">
+            Admin
+          </div>
+        </div>
         {menuItems.map((item) => (
           <button
             key={item.id}
@@ -250,17 +254,20 @@ export default function AdminView() {
             {item.label}
           </button>
         ))}
-        <button
-          onClick={() => {
-            setAuthUser(false);
-            sessionStorage.removeItem("authUser");
-          }}
-          className="p-4 text-xl font-bold text-black"
-        >
-          Logout
-        </button>
+        {/* <button className="p-4 text-xl font-bold text-black">Logout</button> */}
+        <div className="flex items-center justify-center col-start-10 col-end-12 font-medium">
+          <button
+            onClick={() => {
+              setAuthUser(false);
+              sessionStorage.removeItem("authUser");
+            }}
+            className="w-full py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+          >
+            Logout
+          </button>
+        </div>
       </nav>
-      <div className="p-10 mt-10">
+      <div className="p-5">
         {menuItems.map(
           (item) => item.id === currentSelectedTab && item.component
         )}

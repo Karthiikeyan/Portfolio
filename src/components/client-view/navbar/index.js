@@ -35,11 +35,11 @@ function CreateMenus({ activeLink, getMenuItems, setActiveLink }) {
       smooth={true}
       duration={1000}
       onSetActive={() => setActiveLink(item.id)}
-      className={`px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative
+      className={`px-4 py-2 mx-2 cursor-pointer inline-block relative
     ${
       activeLink === item.id
-        ? "text-green-main animation-active shadow-green-main"
-        : "text-[#000] font-bold hover:text-green-main"
+        ? "text-blue-500  shadow-blue-500"
+        : "text-[#000] font-bold hover:text-blue-500"
     }
     `}
     >
@@ -65,13 +65,10 @@ export default function Navbar() {
           scrollActive ? "shadow-md pt-0" : "pt-4"
         }`}
       >
-        <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
-          <div className="col-start-1 col-end-2 flex items-center">
-            <div className="cursor-pointer flex gap-2 font-bold items-center text-[20px] text-green-main">
-              <div className="w-[40px] h-[40px] flex justify-center items-center p-3 rounded-[8px] border-green-main bg-green-main">
-                <span className="text-[#fff] text-[25px] font-bold">P</span>
-              </div>
-              ortfolio
+        <nav className="grid max-w-screen-xl grid-flow-col px-6 py-3 mx-auto bg-blue-200 rounded sm:px-8 lg:px-16 sm:py-4">
+          <div className="flex items-center col-start-1 col-end-2">
+            <div className="cursor-pointer flex gap-2 font-bold items-center text-[20px] text-blue-500">
+              Portfolio
             </div>
           </div>
           <ul className="hidden lg:flex col-start-4 col-end-8 text-[#000] items-center">
@@ -81,7 +78,7 @@ export default function Navbar() {
               getMenuItems={menuItems}
             />
           </ul>
-          <div className="col-start-10 col-end-12 font-medium flex justify-center items-center">
+          <div className="flex items-center justify-center col-start-10 col-end-12 font-medium">
             <button
               onClick={() =>
                 scroller.scrollTo("contact", {
@@ -90,14 +87,14 @@ export default function Navbar() {
                   smooth: true,
                 })
               }
-              className="py-3 px-6 border-[2px] bg-[#fff] border-green-main text-[#000] font-semibold rounded-lg text-xl tracking-widest hover:shadow-green-md transition-all outline-none"
+              className="w-full py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
             >
               Contact Me
             </button>
           </div>
         </nav>
       </header>
-      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t">
+      <nav className="fixed bottom-0 left-0 right-0 z-20 px-4 lg:hidden sm:px-8 shadow-t">
         <div className="bg-white-500 sm:px-3">
           <ul className="overflow-x-auto flex w-full justify-between items-center text-[#000]">
             <CreateMenus

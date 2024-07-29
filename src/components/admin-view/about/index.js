@@ -37,16 +37,16 @@ const controls = [
 
 export default function AdminAboutView({formData, setFormData , handleSaveData}) {
   return (
-    <div className="w-full">
-      <div className="bg-[#ffffff] shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="flex flex-col items-center w-full h-screen">
+      <h1 className="m-5 text-2xl font-bold ">About Section</h1>
+      <div className="w-full pt-4 pb-4 mb-2">
         <FormControls
           controls={controls}
           formData={formData}
           setFormData={setFormData}
+          handleSaveData={handleSaveData}
+          destination="about"
         />
-        <button onClick={()=> handleSaveData('about')} className="mt-[10px] border border-green-600 p-4 font-bold text-[16px]">
-          Add Info
-        </button>
       </div>
     </div>
   );

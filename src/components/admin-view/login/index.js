@@ -19,19 +19,18 @@ const controls = [
 
 export default function Login({ formData, setFormData, handleLogin }) {
   return (
-    <div className="w-full">
-      <div className="bg-[#ffffff] shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="flex flex-col items-center justify-center w-full h-screen shadow-md">
+      <div className="w-full max-w-md p-6 mx-auto bg-white rounded shadow-md">
+        <div className="flex items-center justify-center">
+          <h1 className="text-2xl font-bold">Login</h1>
+        </div>
         <FormControls
           controls={controls}
           formData={formData}
           setFormData={setFormData}
+          handleSaveData={handleLogin}
+          destination="login"
         />
-        <button
-          onClick={handleLogin}
-          className="mt-[10px] border border-green-600 p-4 font-bold text-[16px]"
-        >
-          Login
-        </button>
       </div>
     </div>
   );
