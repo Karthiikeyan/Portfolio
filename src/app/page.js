@@ -5,7 +5,7 @@ import ClientHomeView from "@/components/client-view/home";
 import ClientProjectView from "@/components/client-view/project";
 
 async function extractAllDatas(currentSection) {
-  const res = await fetch(`../app/api/${currentSection}/get`, {
+  const res = await import(`../app/api/${currentSection}/get`, {
     method: "GET",
     cache: "no-store",
   });
