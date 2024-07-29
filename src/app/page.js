@@ -41,6 +41,12 @@ export default function Home() {
       setExperienceSectionData(experienceData);
       setEducationSectionData(educationData);
       setProjectSectionData(projectData);
+      console.log(homeSectionData);
+      console.log(aboutSectionData);
+      console.log(experienceSectionData);
+      console.log(educationSectionData);
+      console.log(projectSectionData);
+      
     }
 
     loadAllData();
