@@ -25,37 +25,35 @@ export default function ClientProjectView({ data }) {
           </h1>
         </div>
       </div>
-      {data && data.length
-        ? data.map((item, index) => (
-            <div
-              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 "
-              key={index}
-            >
-              <div class="bg-white rounded-md shadow-lg p-4 relative">
+      {data && data.length ? (
+        <div className="flex flex-wrap gap-4">
+          {data.map((item, index) => (
+            <div className="flex-1 min-w-0 md:w-1/2 lg:w-1/3" key={index}>
+              <div className="relative w-full p-4 m-2 bg-white rounded-md shadow-lg">
                 <FaExternalLinkAlt
-                  class="absolute top-0 right-0 w-4 h-4 mt-2 mr-2 cursor-pointer  hover:text-blue-400"
+                  className="absolute top-0 right-0 w-4 h-4 mt-2 mr-2 cursor-pointer hover:text-blue-400"
                   onClick={() => router.push(item.website)}
                 />
-                <h2 class="text-lg font-semibold">{item.name}</h2>
-                <p class="mt-2">{item.createdAt.split("T")[0]}</p>
-                {item?.technologies.split(",").map((techItem) => (
-                  <div class="flex mt-2">
-                    <span class="mr-2 bg-gray-200 rounded px-2 py-1 text-sm">
+                <h2 className="text-lg font-semibold">{item.name}</h2>
+                <p className="mt-2">{item.createdAt.split("T")[0]}</p>
+                {item?.technologies.split(",").map((techItem, techIndex) => (
+                  <div className="flex mt-2" key={techIndex}>
+                    <span className="px-2 py-1 mr-2 text-sm bg-gray-200 rounded">
                       {techItem}
                     </span>
                   </div>
                 ))}
                 <button
                   onClick={() => router.push(item.github)}
-                  class="block mt-4 text-blue-500 hover:underline"
+                  className="block mt-4 text-blue-500 hover:underline"
                 >
                   Learn More
                 </button>
               </div>
             </div>
-          ))
-        : null}
-     
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
