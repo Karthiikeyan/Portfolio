@@ -41,11 +41,21 @@ export default function Home() {
       setExperienceSectionData(experienceData);
       setEducationSectionData(educationData);
       setProjectSectionData(projectData);
+      
     }
 
     loadAllData();
   }, []);
 
+  if (
+    !homeSectionData ||
+    !aboutSectionData ||
+    !experienceSectionData ||
+    !educationSectionData ||
+    !projectSectionData
+  ) {
+    return <div>Loading...</div>;
+  }
 
 
   return (
