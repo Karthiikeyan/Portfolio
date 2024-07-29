@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 async function fetchData(currentSection) {
   try {
-    const res = await fetch(`http://localhost:3000/api/${currentSection}/get`, {
+    const res = await fetch(`/api/${currentSection}/get`, {
       method: "GET",
       cache: "no-store",
     });
