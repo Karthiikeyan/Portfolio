@@ -5,10 +5,13 @@ import ClientHomeView from "@/components/client-view/home";
 import ClientProjectView from "@/components/client-view/project";
 
 async function extractAllDatas(currentSection) {
-  const res = await import(`../app/api/${currentSection}/get`, {
-    method: "GET",
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `http://karthiikportfolio.vercel.app/api/${currentSection}/get`,
+    {
+      method: "GET",
+      cache: "no-store",
+    }
+  );
 
   const data = await res.json();
 
