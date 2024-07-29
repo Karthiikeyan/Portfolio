@@ -46,15 +46,7 @@ export default function Home() {
     loadAllData();
   }, []);
 
-  // if (
-  //   !homeSectionData ||
-  //   !aboutSectionData ||
-  //   !experienceSectionData ||
-  //   !educationSectionData ||
-  //   !projectSectionData
-  // ) {
-  //   return <div>Loading...</div>;
-  // }
+
 
   return (
     <div>
