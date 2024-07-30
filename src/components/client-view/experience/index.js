@@ -40,7 +40,7 @@ export default function ClientExperienceAndEducationView({
           <div>
             <div className="flex w-full">
               <div className="container">
-                <Timeline position="right">
+                <Timeline position="alternate">
                   {experienceData && experienceData.length
                     ? experienceData.map((experienceItem, index) => (
                         <TimelineItem>
@@ -92,7 +92,7 @@ export default function ClientExperienceAndEducationView({
           <div>
             <div className="flex w-full">
               <div className="container">
-                <Timeline  position="right">
+                <Timeline  position="alternate">
                   {educationData && educationData.length
                     ? educationData.map((educationItem, index) => (
                         <TimelineItem>
