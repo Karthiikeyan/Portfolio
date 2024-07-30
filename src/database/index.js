@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export default async function connectToDB() {
   try {
     await mongoose.connect(
-      process.env.MONGODB_URI
+      "mongodb+srv://Karthikeyan:Mongodb@e-commerce.chyiafn.mongodb.net/Portfolio"
     );
     console.log("Database connected successfully");
   } catch (e) {
