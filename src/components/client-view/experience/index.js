@@ -20,7 +20,7 @@ export default function ClientExperienceAndEducationView({
       className="max-w-screen-xl px-6 mx-auto mt-8 mb-6 sm:mt-14 sm:mb-14 sm:px-4 lg:px-8"
       id="experience"
     >
-      <div className="grid grid-flow-row grid-cols-1 gap-8 sm:grid-flow-col sm:grid-cols-2">
+      <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-5">
           <div className={"py-6 sm:py-16"}>
             <div className="flex flex-col items-center justify-center row-start-2 sm:row-start-1">
@@ -50,19 +50,28 @@ export default function ClientExperienceAndEducationView({
                           </TimelineSeparator>
                           <TimelineContent key={index}>
                             <div className="border-[2px] p-4 rounded-[8px] border-blue-500 mt-[14px] ml-[16px]">
-                              <h3 className="mt-2 font-extrabold">
-                                {experienceItem.company},{" "}
-                                {experienceItem.location}
-                              </h3>
-                              <p className="mt-2 font-extrabold">
-                                {experienceItem.position}
-                              </p>
-                              <p className="mt-2 font-extralight">
-                                {experienceItem.jobprofile}
-                              </p>
-                              <p className="font-bold">
-                                {experienceItem.duration}
-                              </p>
+                              <div className="flex justify-between ">
+                                <h3 className="mt-2 font-extrabold">
+                                  {experienceItem.company}
+                                </h3>
+                                <p className="font-medium text-md">
+                                  {experienceItem.location}
+                                </p>
+                              </div>
+                              <div className="flex justify-between">
+                                <p className="mt-2 font-bold">
+                                  {experienceItem.position}
+                                </p>
+                                <p className="font-medium">
+                                  {experienceItem.duration}
+                                </p>
+                              </div>
+                              <div className="flex justify-between">
+                                <p className="mt-2 font-extralight">
+                                  {experienceItem.jobprofile}
+                                </p>
+                                <p> </p>
+                              </div>
                             </div>
                           </TimelineContent>
                         </TimelineItem>
@@ -92,7 +101,7 @@ export default function ClientExperienceAndEducationView({
           <div>
             <div className="flex w-full">
               <div className="container">
-                <Timeline  position="alternate">
+                <Timeline position="alternate">
                   {educationData && educationData.length
                     ? educationData.map((educationItem, index) => (
                         <TimelineItem>
@@ -102,15 +111,20 @@ export default function ClientExperienceAndEducationView({
                           </TimelineSeparator>
                           <TimelineContent key={index}>
                             <div className="border-[2px] p-4 rounded-[8px] border-blue-500 mt-[14px] ml-[16px]">
-                              <h3 className="mt-2 font-extrabold">
-                                {educationItem.college}
-                              </h3>
-                              <p className="mt-2 font-bold">
-                                {educationItem.degree}
-                              </p>
-                              <p className="font-medium">
-                                {educationItem.year}
-                              </p>
+                              <div className="flex justify-between">
+                                <h3 className="mt-2 font-extrabold">
+                                  {educationItem.college}
+                                </h3>
+                                <p className="font-medium">
+                                  {educationItem.year}
+                                </p>
+                              </div>
+                              <div className="flex justify-between">
+                                <p className="mt-2 font-bold">
+                                  {educationItem.degree}
+                                </p>
+                                <p></p>
+                              </div>
                             </div>
                           </TimelineContent>
                         </TimelineItem>
