@@ -36,13 +36,23 @@ export default function ClientProjectView({ data }) {
                 />
                 <h2 className="text-lg font-semibold">{item.name}</h2>
                 <p className="mt-2">{item.createdAt.split("T")[0]}</p>
-                {item?.technologies.split(",").map((techItem, techIndex) => (
+                {/* {item?.technologies.split(",").map((techItem, techIndex) => (
                   <div className="flex mt-2" key={techIndex}>
                     <span className="px-2 py-1 mr-2 text-sm bg-gray-200 rounded">
                       {techItem}
                     </span>
                   </div>
-                ))}
+                ))} */}
+                <div className="flex mt-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                  {item?.technologies.split(",").map((techItem, techIndex) => (
+                    <span
+                      className="px-2 py-1 mr-2 text-sm bg-gray-200 rounded"
+                      key={techIndex}
+                    >
+                      {techItem}
+                    </span>
+                  ))}
+                </div>
                 <button
                   onClick={() => router.push(item.github)}
                   className="block mt-4 text-blue-500 hover:underline"

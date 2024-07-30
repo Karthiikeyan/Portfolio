@@ -111,7 +111,7 @@ export default function ClientContactView() {
     if(showSuccessMessage) {
         setTimeout(()=>{
            setShowSuccessMessage(false)
-        },1500)
+        },3000)
     }
 
   },[showSuccessMessage])
@@ -198,23 +198,24 @@ export default function ClientContactView() {
                   </div>
                 )
               )}
-              {showSuccessMessage && (
-                <p className="text-[14px] font-bold my-[8px] bg-green-500">
-                  Your message is successfully delivered !
-                </p>
-              )}
               <div className="w-full p-2">
                 <button
                   disabled={!isValidForm()}
                   onClick={handleSendMessage}
-                  className="w-full py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+                  className={`${
+                    showSuccessMessage === true
+                      ? "bg-green-500"
+                      : "bg-blue-500"
+                  } w-full py-2 text-white  rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300`}
                 >
-                  Send Message
+                  {showSuccessMessage === true
+                    ? "Send Successfully"
+                    : "Send message"}
                 </button>
               </div>
             </div>
           </div>
-          
+
           {/* Social media icons */}
           <div className="flex justify-around max-w-md p-6 mx-auto bg-white rounded shadow-md">
             {socialIcons.map((icons, index) => (

@@ -54,7 +54,11 @@ export default function Home() {
     !educationSectionData ||
     !projectSectionData
   ) {
-    return <div>Loading...</div>;
+    return (
+      <div class="flex justify-center items-center h-screen bg-gradient-to-br from-purple-500 to-blue-500">
+        <div class="w-10 h-10 bg-white rounded-full shadow-lg animate-bounce"></div>
+      </div>
+    );
   }
 
 
