@@ -96,7 +96,7 @@ export default function Navbar() {
       </header>
       <nav className="fixed left-0 right-0 z-20 px-4 bottom-5 lg:hidden sm:px-8 shadow-t">
         <div className="bg-blue-200 rounded sm:px-3">
-          <ul className="overflow-x-auto flex w-full justify-between items-center text-[#000]">
+          <ul className=" overflow-x-auto whitespace-nowrap scrollbar-hide flex w-full justify-between items-center text-[#000]">
             <CreateMenus
               setActiveLink={setActiveLink}
               activeLink={activeLink}
