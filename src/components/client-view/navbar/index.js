@@ -38,7 +38,7 @@ function CreateMenus({ activeLink, getMenuItems, setActiveLink }) {
       className={`px-4 py-2 mx-2 cursor-pointer inline-block relative
     ${
       activeLink === item.id
-        ? "text-blue-500  shadow-blue-500"
+        ? "text-blue-500 font-bold  shadow-blue-500"
         : "text-[#000] font-bold hover:text-blue-500"
     }
     `}
@@ -94,8 +94,8 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
-      <nav className="fixed bottom-0 left-0 right-0 z-20 px-4 lg:hidden sm:px-8 shadow-t">
-        <div className="bg-white-500 sm:px-3">
+      <nav className="fixed left-0 right-0 z-20 px-4 bottom-5 lg:hidden sm:px-8 shadow-t">
+        <div className="bg-blue-200 rounded sm:px-3">
           <ul className="overflow-x-auto flex w-full justify-between items-center text-[#000]">
             <CreateMenus
               setActiveLink={setActiveLink}

@@ -214,16 +214,17 @@ export default function ClientContactView() {
               </div>
             </div>
           </div>
+          
+          {/* Social media icons */}
+          <div className="flex justify-around max-w-md p-6 mx-auto bg-white rounded shadow-md">
+            {socialIcons.map((icons, index) => (
+              <div key={index}>
+                <div>{icons.icon}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Social media icons */}
-        <div className="flex justify-around max-w-md p-6 mx-auto bg-white rounded shadow-md">
-          {socialIcons.map((icons, index) => (
-            <div key={index}>
-              <div>{icons.icon}</div>
-            </div>
-          ))}
-        </div>
         <div className="flex flex-col items-center justify-center p-5 mt-10">
           <p className="mb-4 font-medium text-semibold">
             💙 Thanks for Visiting ✨
