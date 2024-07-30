@@ -244,7 +244,7 @@ export default function AdminView() {
           <button
             key={item.id}
             type="button"
-            className="transition duration-300 ease-in-out hover:text-blue-500"
+            className="hidden transition duration-300 ease-in-out lg:block hover:text-blue-500"
             onClick={() => {
               setCurrentSelectedTab(item.id);
               resetFormDatas();
@@ -254,7 +254,6 @@ export default function AdminView() {
             {item.label}
           </button>
         ))}
-        {/* <button className="p-4 text-xl font-bold text-black">Logout</button> */}
         <div className="flex items-center justify-center col-start-10 col-end-12 font-medium">
           <button
             onClick={() => {
@@ -272,6 +271,28 @@ export default function AdminView() {
           (item) => item.id === currentSelectedTab && item.component
         )}
       </div>
+
+      {/* Mobile Menu  */}
+      <nav className="fixed left-0 right-0 z-20 px-4 bottom-5 lg:hidden sm:px-8">
+        <div className="p-2 bg-white rounded shadow-xl md:p-4 sm:px-3">
+          <div className="overflow-x-auto whitespace-nowrap scrollbar-hide flex w-full md:justify-around gap-10 md:gap-0 items-center text-[#000]">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className="transition duration-300 ease-in-out hover:text-blue-500"
+                onClick={() => {
+                  setCurrentSelectedTab(item.id);
+                  resetFormDatas();
+                  setUpdate(false);
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
     </div>
   );
 }
