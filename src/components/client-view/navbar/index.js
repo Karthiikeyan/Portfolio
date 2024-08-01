@@ -67,8 +67,8 @@ export default function Navbar() {
       >
         <nav className="grid max-w-screen-xl grid-flow-col px-6 py-3 mx-auto bg-blue-200 rounded sm:px-8 lg:px-16 sm:py-4">
           <div className="flex items-center col-start-1 col-end-2">
-            <div className="cursor-pointer flex gap-2 font-bold items-center text-[20px] text-blue-500">
-              Portfolio
+            <div className="cursor-pointer flex font-bold items-center text-[20px] text-blue-500">
+              Portfolio<span class="text-red-500">Pro</span>
             </div>
           </div>
           <ul className="hidden lg:flex col-start-4 col-end-8 text-[#000] items-center">
