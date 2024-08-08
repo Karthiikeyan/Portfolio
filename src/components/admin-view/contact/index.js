@@ -4,13 +4,12 @@ import { deleteData } from "@/services";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
-export default function AdminContactView({ data }) {
-  
+export default function AdminContactView({ data, extractAllDatas }) {
   const handleDelete = async (id) => {
     const response = await deleteData("contact", id);
-    console.log(response);
+    extractAllDatas();
   };
-  
+
   return (
     <div className="flex flex-col items-center w-full h-screen">
       <h1 className="m-5 text-2xl font-bold ">Contact Section</h1>

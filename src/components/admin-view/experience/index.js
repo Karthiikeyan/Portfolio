@@ -43,10 +43,11 @@ export default function AdminExperienceView({
   handleSaveData,
   setFormData,
   data,
+  extractAllDatas,
 }) {
   const handleDelete = async (id) => {
     const response = await deleteData("experience", id);
-    console.log(response);
+    extractAllDatas;
   };
 
   return (

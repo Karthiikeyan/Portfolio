@@ -32,10 +32,10 @@ const controls = [
   },
 ];
 
-export default function AdminProjectView({ formData, setFormData , handleSaveData , data }) {
+export default function AdminProjectView({ formData, extractAllDatas, setFormData , handleSaveData , data }) {
   const handleDelete = async (id) => {
     const response = await deleteData("project", id);
-    console.log(response);
+    extractAllDatas;
   };
   return (
     <div className="flex flex-col items-center w-full h-screen">

@@ -102,6 +102,7 @@ export default function AdminView() {
           handleSaveData={handleSaveData}
           setFormData={setExperienceViewFormData}
           data={allData?.experience}
+          extractAllDatas={extractAllDatas}
         />
       ),
     },
@@ -114,6 +115,7 @@ export default function AdminView() {
           handleSaveData={handleSaveData}
           setFormData={setEducationViewFormData}
           data={allData?.education}
+          extractAllDatas={extractAllDatas}
         />
       ),
     },
@@ -126,15 +128,19 @@ export default function AdminView() {
           handleSaveData={handleSaveData}
           setFormData={setProjectViewFormData}
           data={allData?.project}
+          extractAllDatas={extractAllDatas}
         />
       ),
     },
     {
       id: "contact",
       label: "Contact",
-      component: <AdminContactView
-      data={allData && allData?.contact}
-      />,
+      component: (
+        <AdminContactView
+          data={allData && allData?.contact}
+          extractAllDatas={extractAllDatas}
+        />
+      ),
     },
   ];
 

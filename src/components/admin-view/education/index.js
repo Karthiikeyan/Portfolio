@@ -27,10 +27,10 @@ const controls = [
 ];
 
 
-export default function AdminEducationView({handleSaveData, formData, setFormData , data}) {
+export default function AdminEducationView({handleSaveData, extractAllDatas, formData, setFormData , data}) {
   const handleDelete = async (id) => {
     const response = await deleteData("education", id);
-    console.log(response);
+    extractAllDatas();
   };
   return (
     
