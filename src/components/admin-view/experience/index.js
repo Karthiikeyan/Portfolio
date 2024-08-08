@@ -1,7 +1,7 @@
 "use client";
 
 import FormControls from "../form-controls";
-import { MdEdit } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { deleteData } from "@/services";
 
@@ -47,7 +47,7 @@ export default function AdminExperienceView({
 }) {
   const handleDelete = async (id) => {
     const response = await deleteData("experience", id);
-    extractAllDatas;
+    extractAllDatas();
   };
 
   return (
@@ -63,7 +63,7 @@ export default function AdminExperienceView({
                     key={index}
                   >
                     <div className="w-full p-4 border border-blue-400 rounded">
-                      <MdEdit class="absolute top-3 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600" />
+                      <FaEdit class="absolute top-3 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600" />
                       <MdDelete
                         onClick={() => handleDelete(item._id)}
                         class="absolute top-11 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-red-700"

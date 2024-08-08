@@ -1,7 +1,6 @@
 "use client";
 
 import { deleteData } from "@/services";
-import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
 export default function AdminContactView({ data, extractAllDatas }) {

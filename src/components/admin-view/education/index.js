@@ -2,7 +2,7 @@
 
 import { deleteData } from "@/services";
 import FormControls from "../form-controls";
-import { MdEdit } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 const controls = [
@@ -46,7 +46,7 @@ export default function AdminEducationView({handleSaveData, extractAllDatas, for
                     key={index}
                   >
                     <div className="w-full p-4 border border-blue-400 rounded">
-                      <MdEdit
+                      <FaEdit
                         class="absolute top-2 right-2 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600"
                       />
                       <MdDelete
