@@ -1,5 +1,6 @@
 "use client";
 
+import { deleteData } from "@/services";
 import FormControls from "../form-controls";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -27,6 +28,10 @@ const controls = [
 
 
 export default function AdminEducationView({handleSaveData, formData, setFormData , data}) {
+  const handleDelete = async (id) => {
+    const response = await deleteData("education", id);
+    console.log(response);
+  };
   return (
     
     <div className="flex flex-col items-center w-full h-screen">
@@ -45,6 +50,7 @@ export default function AdminEducationView({handleSaveData, formData, setFormDat
                         class="absolute top-2 right-2 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600"
                       />
                       <MdDelete
+                        onClick={() => handleDelete(item._id)}
                         class="absolute top-10 right-2 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-red-700"
                       />
                       <h2 class="text-lg font-semibold">{item.degree}</h2>

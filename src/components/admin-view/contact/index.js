@@ -1,9 +1,16 @@
 "use client";
 
+import { deleteData } from "@/services";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
 export default function AdminContactView({ data }) {
+  
+  const handleDelete = async (id) => {
+    const response = await deleteData("contact", id);
+    console.log(response);
+  };
+  
   return (
     <div className="flex flex-col items-center w-full h-screen">
       <h1 className="m-5 text-2xl font-bold ">Contact Section</h1>
@@ -17,8 +24,11 @@ export default function AdminContactView({ data }) {
                     key={index}
                   >
                     <div className="w-full p-4 border border-blue-400 rounded">
-                      <MdDelete class="absolute top-3 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-red-700" />
-                     
+                      <MdDelete
+                        onClick={() => handleDelete(item._id)}
+                        class="absolute top-3 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-red-700"
+                      />
+
                       <h2 class="text-lg font-semibold">{item.name}</h2>
                       <p class="mt-2">{item.email}</p>
                       <p class="mt-2">{item.message}</p>
