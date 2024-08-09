@@ -1,9 +1,10 @@
 "use client";
 
-import { deleteData } from "@/services";
+import { deleteData, updateData } from "@/services";
 import FormControls from "../form-controls";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useState } from "react";
 
 const controls = [
   {
@@ -32,11 +33,38 @@ const controls = [
   },
 ];
 
-export default function AdminProjectView({ formData, extractAllDatas, setFormData , handleSaveData , data }) {
+export default function AdminProjectView({ formData, resetFormDatas, extractAllDatas, setFormData , handleSaveData , data }) {
+  
+    const [editMode, setEditMode] = useState(false);
+    const [editId, setEditId] = useState(null);
+
+    const handleEdit = (item) => {
+      setFormData(item); 
+      setEditId(item._id); 
+      setEditMode(true); 
+    };
+  
   const handleDelete = async (id) => {
     const response = await deleteData("project", id);
     extractAllDatas();
   };
+
+    const handleSubmit = async () => {
+      if (editMode) {
+        const response = await updateData("project", {
+          ...formData,
+          _id: editId,
+        });
+        resetFormDatas();
+          extractAllDatas();
+          setEditMode(false);
+          setEditId(null);
+       
+      } else {
+        handleSaveData();
+      }
+    };
+  
   return (
     <div className="flex flex-col items-center w-full h-screen">
       <h1 className="m-5 text-2xl font-bold ">Project Section</h1>
@@ -50,7 +78,10 @@ export default function AdminProjectView({ formData, extractAllDatas, setFormDat
                     key={index}
                   >
                     <div className="w-full p-4 border border-blue-400 rounded">
-                      <FaEdit class="absolute top-2 right-2 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600" />
+                      <FaEdit
+                        onClick={() => handleEdit(item)}
+                        class="absolute top-2 right-2 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600"
+                      />
                       <MdDelete
                         onClick={() => handleDelete(item._id)}
                         class="absolute top-10 right-2 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-red-700"
@@ -70,8 +101,9 @@ export default function AdminProjectView({ formData, extractAllDatas, setFormDat
             controls={controls}
             formData={formData}
             setFormData={setFormData}
-            handleSaveData={handleSaveData}
+            handleSaveData={handleSubmit}
             destination="project"
+            mode={editMode}
           />
         </div>
       </div>

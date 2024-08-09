@@ -101,6 +101,7 @@ export default function AdminView() {
           formData={experienceViewFormData}
           handleSaveData={handleSaveData}
           setFormData={setExperienceViewFormData}
+          resetFormDatas={resetFormDatas}
           data={allData?.experience}
           extractAllDatas={extractAllDatas}
         />
@@ -114,6 +115,7 @@ export default function AdminView() {
           formData={educationViewFormData}
           handleSaveData={handleSaveData}
           setFormData={setEducationViewFormData}
+          resetFormDatas={resetFormDatas}
           data={allData?.education}
           extractAllDatas={extractAllDatas}
         />
@@ -127,6 +129,7 @@ export default function AdminView() {
           formData={projectViewFormData}
           handleSaveData={handleSaveData}
           setFormData={setProjectViewFormData}
+          resetFormDatas={resetFormDatas}
           data={allData?.project}
           extractAllDatas={extractAllDatas}
         />

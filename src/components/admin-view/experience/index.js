@@ -1,9 +1,11 @@
 "use client";
 
+import { deleteData, updateData } from "@/services";
 import FormControls from "../form-controls";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { deleteData } from "@/services";
+import { useState } from "react";
+
 
 const controls = [
   {
@@ -42,13 +44,39 @@ export default function AdminExperienceView({
   formData,
   handleSaveData,
   setFormData,
+  resetFormDatas,
   data,
   extractAllDatas,
 }) {
+
+      const [editMode, setEditMode] = useState(false);
+      const [editId, setEditId] = useState(null);
+
+      const handleEdit = (item) => {
+        setFormData(item);
+        setEditId(item._id);
+        setEditMode(true);
+      };
+
   const handleDelete = async (id) => {
     const response = await deleteData("experience", id);
     extractAllDatas();
   };
+
+      const handleSubmit = async () => {
+        if (editMode) {
+          const response = await updateData("experience", {
+            ...formData,
+            _id: editId,
+          });
+          resetFormDatas();
+          extractAllDatas();
+          setEditMode(false);
+          setEditId(null);
+        } else {
+          handleSaveData();
+        }
+      };
 
   return (
     <div className="flex flex-col items-center w-full h-screen">
@@ -63,7 +91,10 @@ export default function AdminExperienceView({
                     key={index}
                   >
                     <div className="w-full p-4 border border-blue-400 rounded">
-                      <FaEdit class="absolute top-3 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600" />
+                      <FaEdit
+                        onClick={() => handleEdit(item)}
+                        class="absolute top-3 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-blue-600"
+                      />
                       <MdDelete
                         onClick={() => handleDelete(item._id)}
                         class="absolute top-11 right-3 w-6 h-6 mt-2 mr-2 cursor-pointer  hover:text-red-700"
@@ -84,8 +115,9 @@ export default function AdminExperienceView({
             controls={controls}
             formData={formData}
             setFormData={setFormData}
-            handleSaveData={handleSaveData}
+            handleSaveData={handleSubmit}
             destination="experience"
+            mode={editMode}
           />
         </div>
       </div>

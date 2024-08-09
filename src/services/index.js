@@ -48,6 +48,7 @@ export async function updateData(currentTab, formData) {
     });
 
     const result = await response.json();
+
     if (result.success) {
       toast.success("Updated Successfully");
     } else {
@@ -67,21 +68,19 @@ export async function deleteData(currentTab, id){
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id }), // Send the ID in the body
+      body: JSON.stringify({ id }), 
     });
 
     const result = await response.json();
 
     if (result.success) {
-      // alert("Experience deleted successfully");
       toast.success("Deleted Successfully");
     } else {
-      // alert("Failed to delete experience");
       toast.error("Delete Failed");
     }
   } catch (error) {
     console.error("Error deleting experience:", error);
-    alert("An error occurred while deleting experience");
+    toast.error("Delete Failed");
   }
 }
 

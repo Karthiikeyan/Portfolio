@@ -5,7 +5,8 @@ export default function FormControls({
   formData,
   setFormData,
   handleSaveData,
-  destination
+  destination,
+  mode,
 }) {
   return (
     <div
@@ -36,10 +37,12 @@ export default function FormControls({
         </div>
       ))}
       <button
-        onClick={() => handleSaveData(destination)}
-        className="w-full py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+        onClick={() => handleSaveData()}
+        className={`${
+          mode === true ? "bg-green-500 hover:bg-green-600" : "bg-blue-500 hover:bg-blue-600"
+        } w-full py-2 text-white  rounded  focus:outline-none focus:ring focus:ring-blue-300`}
       >
-        {destination === "login" ? "Login" : "Add Info"}
+        {destination === "login" ? "Login" : mode ? "Update Info" : "Add Info"}
       </button>
     </div>
   );
